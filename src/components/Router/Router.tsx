@@ -1,28 +1,43 @@
 import {
   createBrowserRouter,
-  createRoutesFromElements,
-  Route,
   RouterProvider,
 } from "react-router-dom";
 import Routes from "../../config/routes/routes";
 import { Dashboard, Home } from "../../views";
+import NoMatch from "../../views/NoMatch";
+import Procedures from "../../views/Procedures";
+import Receipts from "../../views/Receipts";
+import Users from "../../views/Users";
+import Layout from "../Layout";
 
 const Router = () => {
 
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route
-        path={Routes.HOME}
-        element={<Home />}
-      >
-        <Route
-          path={Routes.DASHBOARD}
-          element={<Dashboard />}
-        />
-      </Route>
-    )
-  );
-
+  const router = createBrowserRouter([
+    {
+      path: Routes.HOME,
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        {
+          path: Routes.DASHBOARD,
+          element: <Dashboard />,
+        },
+        {
+          path: Routes.PROCEDURES,
+          element: <Procedures />
+        },
+        {
+          path: Routes.RECEIPTS,
+          element: <Receipts />
+        },
+        {
+          path: Routes.USERS,
+          element: <Users />
+        },
+        { path: "*", element: <NoMatch /> },
+      ],
+    },
+  ]);
 
   return (
     <>
