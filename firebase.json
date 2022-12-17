@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "the-kitchen-calculator-manager",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
