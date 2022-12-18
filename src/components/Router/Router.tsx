@@ -3,6 +3,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Routes from "../../config/routes/routes";
+import { UserSettingsContextProvider } from "../../context/UserSettingsContext";
 import { Dashboard, Home } from "../../views";
 import NoMatch from "../../views/NoMatch";
 import Procedures from "../../views/Procedures";
@@ -41,7 +42,9 @@ const Router = () => {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <UserSettingsContextProvider>
+        <RouterProvider router={router} />
+      </UserSettingsContextProvider>
     </>
   )
 }
