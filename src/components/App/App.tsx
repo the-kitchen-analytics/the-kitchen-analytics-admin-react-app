@@ -3,7 +3,7 @@ import Router from '../Router'
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="app">
       <ApplicationSettingsContextProvider>
         <Router />
       </ApplicationSettingsContextProvider>

@@ -3,7 +3,8 @@ enum Routes {
   DASHBOARD = 'dashboard',
   USERS = '/users',
   RECEIPTS = '/receipts',
-  PROCEDURES = '/procedures'
+  PROCEDURES = '/procedures',
+  SETTINGS = '/settings'
 }
 
 export default Routes

@@ -1,4 +1,4 @@
 interface Settings {
-  controlsSize: string
-  accentColor: string
+  controlsSize: SemanticSIZES
+  accentColor: SemanticCOLORS
 }

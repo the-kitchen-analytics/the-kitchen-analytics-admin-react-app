@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/components/Layout/Layout.tsx
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Segment, Grid, Container } from 'semantic-ui-react'
@@ -5,6 +6,15 @@ import ErrorMessage from '../ErrorMessage'
 import NavigationBar from '../NavigationBar'
 
 export default function Layout() {
+=======
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { Segment, Grid, Container } from "semantic-ui-react";
+import ErrorMessage from "../../components/ErrorMessage";
+import NavigationBar from "../../components/NavigationBar";
+
+export default function MainLayout() {
+>>>>>>> ab12f9b (Improve layout):src/layouts/MainLayout/MainLayout.tsx
 
   const [error] = useState('')
 
@@ -18,7 +28,7 @@ export default function Layout() {
           <Grid.Column widescreen={4}>
             <NavigationBar
               title={(
-                <strong>The Kitchen App</strong>
+                <strong>The Kitchen Admin</strong>
               )}
             />
           </Grid.Column>

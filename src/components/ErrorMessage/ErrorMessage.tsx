@@ -1,4 +1,4 @@
-import { Message } from "semantic-ui-react";
+import { Message } from 'semantic-ui-react'
 
 class ErrorMessageProps {
   message: string
@@ -12,8 +12,8 @@ const ErrorMessage = (props: ErrorMessageProps) => (
   <Message
     error
     header="Произошла ошибка."
-    content={props.message || "Пожалуйста, проверьте введённые данные и повторите попытку."}
+    content={props.message || 'Пожалуйста, проверьте введённые данные и повторите попытку.'}
   />
-);
+)
 
-export default ErrorMessage;
+export default ErrorMessage

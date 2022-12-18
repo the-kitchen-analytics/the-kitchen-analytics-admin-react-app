@@ -4,19 +4,23 @@ import {
 } from 'react-router-dom'
 import Routes from '../../config/routes/routes'
 import { UserSettingsContextProvider } from '../../context/UserSettingsContext'
-import { Dashboard, Home } from '../../views'
-import NoMatch from '../../views/NoMatch'
-import Procedures from '../../views/Procedures'
-import Receipts from '../../views/Receipts'
-import Users from '../../views/Users'
-import Layout from '../Layout'
+import {
+  Dashboard,
+  Home,
+  NoMatch,
+  Procedures,
+  Receipts,
+  Settings,
+  Users
+} from '../../views'
+import { MainLayout } from '../../layouts'
 
 const Router = () => {
 
   const router = createBrowserRouter([
     {
       path: Routes.HOME,
-      element: <Layout />,
+      element: <MainLayout />,
       children: [
         { index: true, element: <Home /> },
         {
@@ -30,6 +34,10 @@ const Router = () => {
         {
           path: Routes.RECEIPTS,
           element: <Receipts />
+        },
+        {
+          path: Routes.SETTINGS,
+          element: <Settings />
         },
         {
           path: Routes.USERS,
