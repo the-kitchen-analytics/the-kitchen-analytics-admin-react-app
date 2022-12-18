@@ -1,32 +1,39 @@
-import { Outlet, Link } from 'react-router-dom'
-import Routes from '../../config/routes/routes'
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import { Segment, Grid, Container } from 'semantic-ui-react'
+import ErrorMessage from '../ErrorMessage'
+import NavigationBar from '../NavigationBar'
 
-const Layout = () => (
-  <div>
-    <nav>
-      <ul>
-        <li>
-          <Link to={Routes.HOME}>Home</Link>
-        </li>
-        <li>
-          <Link to={Routes.DASHBOARD}>Dashboard</Link>
-        </li>
-        <li>
-          <Link to={Routes.PROCEDURES}>Procedures</Link>
-        </li>
-        <li>
-          <Link to={Routes.RECEIPTS}>Receipts</Link>
-        </li>
-        <li>
-          <Link to={Routes.USERS}>Users</Link>
-        </li>
-      </ul>
-    </nav>
+export default function Layout() {
 
-    <hr />
+  const [error] = useState('')
 
-    <Outlet />
-  </div>
-)
+  return (
+    <Container>
+      <Grid centered padded stackable>
+        {
+          error && <ErrorMessage message={error} />
+        }
+        <Grid.Row>
+          <Grid.Column widescreen={4}>
+            <NavigationBar
+              title={(
+                <strong>The Kitchen App</strong>
+              )}
+            />
+          </Grid.Column>
 
-export default Layout
+          <Grid.Column stretched width={12}>
+            <Grid.Row>
+              <Grid.Column>
+                <Segment padded>
+                  <Outlet />
+                </Segment>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Container>
+  )
+}
