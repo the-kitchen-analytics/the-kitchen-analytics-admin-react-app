@@ -1,5 +1,5 @@
 import { Menu } from 'semantic-ui-react'
-import Routes from '../../config/routes/routes'
+import RoutePath from '../../routes/RoutePath'
 import Logo from '../Logo'
 import NavigationBarItem from './NavigationBarItem'
 import { useUserSettings } from '../../hooks'
@@ -31,7 +31,7 @@ const NavigationBar = (props: NavigationBarProps) => {
 
         <Menu.Menu>
           <NavigationBarItem
-            linkProps={{ to: Routes.RECEIPTS }}
+            linkProps={{ to: RoutePath.RECEIPTS }}
             menuItemProps={{
               icon: 'checked calendar',
               content: 'Записи'
@@ -39,7 +39,7 @@ const NavigationBar = (props: NavigationBarProps) => {
           />
 
           <NavigationBarItem
-            linkProps={{ to: Routes.PROCEDURES }}
+            linkProps={{ to: RoutePath.PROCEDURES }}
             menuItemProps={{
               icon: 'tag',
               content: 'Услуги'
@@ -47,7 +47,7 @@ const NavigationBar = (props: NavigationBarProps) => {
           />
 
           <NavigationBarItem
-            linkProps={{ to: Routes.USERS }}
+            linkProps={{ to: RoutePath.USERS }}
             menuItemProps={{
               icon: 'users',
               content: 'Сотрудники'
@@ -63,7 +63,7 @@ const NavigationBar = (props: NavigationBarProps) => {
 
         <Menu.Menu>
           <NavigationBarItem
-            linkProps={{ to: Routes.SETTINGS }}
+            linkProps={{ to: RoutePath.SETTINGS }}
             menuItemProps={{
               icon: 'setting',
               content: 'Настройки'
