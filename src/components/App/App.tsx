@@ -1,6 +1,5 @@
-import React from 'react';
-import { ApplicationSettingsContextProvider } from '../../context/ApplicationSettingsContext';
-import Router from '../Router';
+import { ApplicationSettingsContextProvider } from '../../context/ApplicationSettingsContext'
+import Router from '../Router'
 
 export default function App() {
   return (
@@ -9,5 +8,5 @@ export default function App() {
         <Router />
       </ApplicationSettingsContextProvider>
     </div>
-  );
+  )
 }

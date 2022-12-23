@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app'
 import {
   GoogleAuthProvider,
   getAuth,
@@ -10,11 +10,11 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
-} from "firebase/auth";
+} from 'firebase/auth'
 
 import {
   getFirestore,
-} from "firebase/firestore";
+} from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -26,36 +26,36 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASEMESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MESUREMENT_ID
-};
+}
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+const app = initializeApp(firebaseConfig)
+const auth = getAuth(app)
+const db = getFirestore(app)
 
-const googleProvider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider()
 
 const signInWithGoogle = async () => {
-  await signInWithPopup(auth, googleProvider);
+  await signInWithPopup(auth, googleProvider)
 }
 
 const logInWithEmailAndPassword = (email: string, password: string) => {
-  return signInWithEmailAndPassword(auth, email, password);
-};
+  return signInWithEmailAndPassword(auth, email, password)
+}
 
 const registerWithEmailAndPassword = async (name: string, email: string, password: string) => {
-  const { user } = await createUserWithEmailAndPassword(auth, email, password);
+  const { user } = await createUserWithEmailAndPassword(auth, email, password)
 
-  await updateProfile(user, { displayName: name });
-};
+  await updateProfile(user, { displayName: name })
+}
 
 const sendPasswordReset = (email: string) => {
-  return sendPasswordResetEmail(auth, email);
-};
+  return sendPasswordResetEmail(auth, email)
+}
 
 const logout = () => {
-  signOut(auth);
-};
+  signOut(auth)
+}
 
 export {
   auth,
@@ -66,4 +66,4 @@ export {
   sendPasswordReset,
   logout,
   onAuthStateChanged
-};
+}

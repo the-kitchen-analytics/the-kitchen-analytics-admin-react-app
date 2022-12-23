@@ -11,8 +11,8 @@ const UserSettingsContextProvider = (props: SettingsContextProviderProps) => {
     accentColor: ''
   } as Settings)
 
-  const setSettingsWrapper = (name: string, value: any) => {
-    (setSettings as Function)((prevSettings: Settings) => ({ ...prevSettings, [name]: value }))
+  const setSettingsWrapper = (name: string, value: unknown) => {
+    setSettings((prevSettings: Settings) => ({ ...prevSettings, [name]: value }))
   }
 
   return (

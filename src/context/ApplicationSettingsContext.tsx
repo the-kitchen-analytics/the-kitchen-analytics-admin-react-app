@@ -8,7 +8,7 @@ const ApplicationSettingsContextProvider = (props: SettingsContextProviderProps)
     controlsSize: 'large',
   } as Settings)
 
-  const setSettingsWrapper = (name: string, value: any) => {
+  const setSettingsWrapper = (name: string, value: unknown) => {
     setSettings(prevSettings => ({ ...prevSettings, [name]: value }))
   }
 

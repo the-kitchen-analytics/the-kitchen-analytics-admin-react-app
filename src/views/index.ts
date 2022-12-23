@@ -1,5 +1,5 @@
 import Dashboard from './Dashboard'
-import Home from "./Home"
+import Home from './Home'
 
 export {
   Dashboard,
