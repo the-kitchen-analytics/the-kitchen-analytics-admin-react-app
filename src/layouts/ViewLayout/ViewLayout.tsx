@@ -1,4 +1,4 @@
-import { Grid, Header, Icon, SemanticICONS } from 'semantic-ui-react';
+import { Grid, Header, Icon, SemanticICONS } from 'semantic-ui-react'
 
 interface ViewLayoutProps {
   header?: React.ReactNode,

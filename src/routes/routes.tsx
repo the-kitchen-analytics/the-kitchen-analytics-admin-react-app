@@ -8,7 +8,7 @@ import {
   Users
 } from '../views'
 import { MainLayout } from '../layouts'
-import RoutePath from './RoutePath';
+import RoutePath from './RoutePath'
 
 const routes = [
   {
@@ -41,4 +41,4 @@ const routes = [
   },
 ]
 
-export default routes;
+export default routes

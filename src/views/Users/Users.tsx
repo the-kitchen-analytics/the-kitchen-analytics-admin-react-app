@@ -1,4 +1,4 @@
-import { ViewLayout } from "../../layouts";
+import { ViewLayout } from '../../layouts'
 
 export default function Users() {
   return (

@@ -7,8 +7,4 @@ enum RoutePath {
   SETTINGS = '/settings'
 }
 
-<<<<<<< HEAD:src/config/routes/routes.ts
-export default Routes
-=======
-export default RoutePath;
->>>>>>> 9d84d9b (Add some stuff):src/routes/RoutePath.ts
+export default RoutePath
