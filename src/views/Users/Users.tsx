@@ -1,7 +1,11 @@
+import { ViewLayout } from '../../layouts'
+
 export default function Users() {
   return (
-    <div>
-      Users
-    </div>
+    <ViewLayout icon='users'
+      header='Сотрудники'
+      subheader='Управляйте пользователями приложения'
+      content={'content'}
+    />
   )
 }

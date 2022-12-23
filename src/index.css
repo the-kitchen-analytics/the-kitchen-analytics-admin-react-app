@@ -1,13 +1,33 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 1. Create global variables for text and background color */
+:root {
+  --color-text: #000;
+  --color-background: #eee;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 2. Add conditional styling for dark mode preference */
+@media (prefers-color-scheme: dark) {
+
+  /* Re-assign previous variables */
+  :root {
+    --color-text: #eee;
+    /* black => white */
+    --color-background: #000;
+    /* white => black */
+  }
 }
+
+/* 3. Assign variables to page color and background */
+body {
+  /* color: var(--color-text); */
+  background-color: var(--color-background) !important;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 1rem;
+}
+
+/* * {
+    scroll-behavior: smooth;
+} */

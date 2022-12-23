@@ -1,7 +1,11 @@
+import { ViewLayout } from '../../layouts'
+
 export default function Home() {
   return (
-    <div className="home">
-      Home
-    </div>
+    <ViewLayout icon='home'
+      header='Главная'
+      subheader=''
+      content={'content'}
+    />
   )
 }
