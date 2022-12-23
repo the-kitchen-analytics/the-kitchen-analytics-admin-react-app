@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, SetStateAction, Dispatch } from 'react'
 
-export default function useWindowStorage<T>(windowStorage: Storage, key: string, initialValue: T) {
+export default function useWindowStorage<T>(windowStorage: Storage, key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
@@ -20,7 +20,7 @@ export default function useWindowStorage<T>(windowStorage: Storage, key: string,
   })
   // Return a wrapped version of useState's setter function that ...
   // ... persists the new value to localStorage.
-  function setValue(value: T | Function) {
+  function setValue(value: T | ((prevValue: T) => T)) {
     try {
       // Allow value to be a function so we have same API as useState
       const valueToStore =

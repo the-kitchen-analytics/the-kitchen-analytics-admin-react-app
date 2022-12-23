@@ -1,7 +1,6 @@
+import { Dispatch, SetStateAction } from 'react'
 import useWindowStorage from './useWindowStorage'
 
-const useSessionStorage = (key: string, initialValue: any) => {
+export default function useSessionStorage<T>(key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {
   return useWindowStorage(window.sessionStorage, key, initialValue)
 }
-
-export default useSessionStorage

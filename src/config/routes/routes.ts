@@ -6,4 +6,4 @@ enum Routes {
   PROCEDURES = '/procedures'
 }
 
-export default Routes;
+export default Routes

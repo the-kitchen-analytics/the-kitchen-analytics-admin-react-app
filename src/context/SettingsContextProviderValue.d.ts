@@ -1,4 +1,4 @@
 interface SettingsContextProviderValue {
   settings: Settings,
-  setSetting: Function
+  setSetting: Dispatch<SetStateAction<Settings>>
 }

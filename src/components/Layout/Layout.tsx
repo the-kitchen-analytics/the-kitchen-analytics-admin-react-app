@@ -1,5 +1,5 @@
-import { Outlet, Link } from "react-router-dom";
-import Routes from "../../config/routes/routes";
+import { Outlet, Link } from 'react-router-dom'
+import Routes from '../../config/routes/routes'
 
 const Layout = () => (
   <div>

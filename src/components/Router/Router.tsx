@@ -1,15 +1,15 @@
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
-import Routes from "../../config/routes/routes";
-import { UserSettingsContextProvider } from "../../context/UserSettingsContext";
-import { Dashboard, Home } from "../../views";
-import NoMatch from "../../views/NoMatch";
-import Procedures from "../../views/Procedures";
-import Receipts from "../../views/Receipts";
-import Users from "../../views/Users";
-import Layout from "../Layout";
+} from 'react-router-dom'
+import Routes from '../../config/routes/routes'
+import { UserSettingsContextProvider } from '../../context/UserSettingsContext'
+import { Dashboard, Home } from '../../views'
+import NoMatch from '../../views/NoMatch'
+import Procedures from '../../views/Procedures'
+import Receipts from '../../views/Receipts'
+import Users from '../../views/Users'
+import Layout from '../Layout'
 
 const Router = () => {
 
@@ -35,10 +35,10 @@ const Router = () => {
           path: Routes.USERS,
           element: <Users />
         },
-        { path: "*", element: <NoMatch /> },
+        { path: '*', element: <NoMatch /> },
       ],
     },
-  ]);
+  ])
 
   return (
     <>
@@ -49,4 +49,4 @@ const Router = () => {
   )
 }
 
-export default Router;
+export default Router
