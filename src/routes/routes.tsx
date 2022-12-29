@@ -9,6 +9,8 @@ import {
 } from '../views'
 import { MainLayout } from '../layouts'
 import RoutePath from './RoutePath'
+import ReceiptView from '../views/ReceiptView'
+import receiptService  from '../domain/receipt/receiptService'
 
 const routes = [
   {
@@ -26,7 +28,31 @@ const routes = [
       },
       {
         path: RoutePath.RECEIPTS,
-        element: <Receipts />
+        children: [
+          {
+            index: true,
+            element: <Receipts />,
+            loader: () => receiptService.getAll()
+          },
+          {
+            path: ':receiptId',
+            children: [
+              {
+                index: true,
+                element: <ReceiptView />,
+              },
+              {
+                path: 'edit'
+              },
+              {
+                path: 'delete'
+              }
+            ]
+          },
+          {
+            path: 'create'
+          }
+        ]
       },
       {
         path: RoutePath.SETTINGS,
