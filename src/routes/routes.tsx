@@ -10,11 +10,14 @@ import {
 import { MainLayout } from '../layouts'
 import RoutePath from './RoutePath'
 import ReceiptView from '../views/ReceiptView'
-import receiptService  from '../domain/receipt/receiptService'
+import { receiptService } from '../domain/receipt'
+import { Params } from 'react-router-dom'
+import ErrorPage from '../views/ErrorPage'
 
 const routes = [
   {
     path: RoutePath.HOME,
+    errorElement: <ErrorPage />,
     element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
@@ -28,6 +31,7 @@ const routes = [
       },
       {
         path: RoutePath.RECEIPTS,
+        errorElement: <ErrorPage />,
         children: [
           {
             index: true,
@@ -40,6 +44,7 @@ const routes = [
               {
                 index: true,
                 element: <ReceiptView />,
+                loader: ({ params }: { params: Params }) => receiptService.getById(params.receiptId as string)
               },
               {
                 path: 'edit'

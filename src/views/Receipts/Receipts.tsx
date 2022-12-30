@@ -1,17 +1,21 @@
 import { ViewLayout } from '../../layouts'
-import {useLoaderData} from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom'
+import ReceiptTable from '../../components/ReceiptTable'
 
 export default function Receipts() {
 
-  const data = useLoaderData()
-
-  console.debug(data)
+  const receipts = useLoaderData() as Receipt[]
 
   return (
     <ViewLayout icon='checked calendar'
       header='Записи'
       subheader='Управляйте записями в приложении'
-      content={'content'}
-    />
+    >
+
+      <ReceiptTable
+        receipts={receipts}
+      />
+
+    </ViewLayout>
   )
 }

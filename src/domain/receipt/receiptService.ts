@@ -1,62 +1,22 @@
-import {
-  addDoc,
-  collection,
-  query,
-  where,
-  getDocs,
-  onSnapshot,
-  orderBy,
-  updateDoc,
-  deleteDoc,
-} from 'firebase/firestore'
-import {db} from '../../config/firebaseConfig'
-import {mapToModel} from './receiptMapper'
+import DomainFetchService from '../common/DomainFetchService'
 
-export interface IReceiptService {
-  getAll(): Promise<Array<Receipt>>
+export default class ReceiptService {
 
-  getById(id: string): Receipt
+  domainFetchService: DomainFetchService<Receipt>
 
-  save(payload: Receipt): void
-
-  update(id: string, payload: Receipt): void
-
-  deleteById(id: string): void
-}
-
-class ReceiptService {
-
-  async getAll(): Promise<Array<Receipt>> {
-    try {
-      console.debug('ReceiptService.getAll')
-      const snapshot = await getDocs(query(collection(db, 'receipts')))
-
-      if (snapshot.empty) {
-        return []
-      }
-
-      return snapshot.docs.map(mapToModel)
-    } catch (e) {
-      console.error(e)
-      throw e
-    }
+  constructor(domainFetchService: DomainFetchService<Receipt>) {
+    this.domainFetchService = domainFetchService
   }
 
-  // getById(id: string): Receipt {
-  //   return {} as Receipt
-  // }
-  //
-  // save(payload: Receipt): void {
-  // }
-  //
-  // update(id: string, payload: Receipt): void {
-  // }
-  //
-  // deleteById(id: string): void {
-  // }
+  async getAll(): Promise<Array<Receipt>> {
+    console.debug('ReceiptService.getAll')
+    return this.domainFetchService.getAll()
+  }
+
+  async getById(id: string): Promise<Receipt> {
+    console.debug('ReceiptService.getById', id)
+    return this.domainFetchService.getById(id)
+  }
 
 }
-
-const receiptService = new ReceiptService()
-export default receiptService
 
