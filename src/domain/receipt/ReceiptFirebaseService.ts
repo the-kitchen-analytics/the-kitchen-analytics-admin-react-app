@@ -3,14 +3,14 @@ import {
   getDoc,
   getDocs,
 } from 'firebase/firestore'
-import { db } from '../../config/firebaseConfig'
+import { pathNames, firestore } from '../../config/firebase'
 import AbstractFirebaseService from '../common/AbstractFirebaseService'
 import snapshotMapper from '../common/genericSnapshotMapper'
 
 export default class ReceiptFirebaseService extends AbstractFirebaseService<Receipt> {
 
   constructor(converter: FirestoreDataConverter<Receipt>) {
-    super(db, 'receipts', converter)
+    super(firestore, pathNames.RECEIPTS, converter)
   }
 
   async getAll(): Promise<Array<Receipt>> {
