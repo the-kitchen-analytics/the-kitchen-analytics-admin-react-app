@@ -1,10 +1,13 @@
-import {ViewLayout} from '../../layouts'
-import {useMatch} from 'react-router-dom'
+import { ViewLayout } from '../../layouts'
+import { useLoaderData, useMatch } from 'react-router-dom'
 
-export default function ReceiptView() {
+export default function ReceiptShow() {
 
   const match = useMatch('/receipts/:receiptId')
   const receiptId = match?.params.receiptId
+
+  const receipt = useLoaderData()
+  console.debug('receipt', receipt)
 
   return (
     <ViewLayout icon='checked calendar'

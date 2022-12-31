@@ -1,4 +1,5 @@
 import DomainFetchService from '../common/DomainFetchService'
+import Receipt from './Receipt'
 
 export default class ReceiptService {
 

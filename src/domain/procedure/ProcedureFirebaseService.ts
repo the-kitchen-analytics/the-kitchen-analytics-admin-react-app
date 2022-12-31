@@ -6,21 +6,20 @@ import {
 import { pathNames, firestore } from '../../config/firebase'
 import AbstractFirebaseService from '../common/AbstractFirebaseService'
 import snapshotMapper from '../common/genericSnapshotMapper'
-import Receipt from './Receipt'
 
-export default class ReceiptFirebaseService extends AbstractFirebaseService<Receipt> {
+export default class ProcedureFirebaseService extends AbstractFirebaseService<Procedure> {
 
-  constructor(converter: FirestoreDataConverter<Receipt>) {
+  constructor(converter: FirestoreDataConverter<Procedure>) {
     super(firestore, pathNames.RECEIPTS, converter)
   }
 
-  async getAll(): Promise<Array<Receipt>> {
+  async getAll(): Promise<Array<Procedure>> {
     const querySnapshot = await getDocs(super.collectionWrapper())
 
     return querySnapshot.docs.map(snapshotMapper)
   }
 
-  async getById(id: string): Promise<Receipt> {
+  async getById(id: string): Promise<Procedure> {
     const docRef = super.docWrapper(id)
     const docSnap = await getDoc(docRef)
 
@@ -28,7 +27,7 @@ export default class ReceiptFirebaseService extends AbstractFirebaseService<Rece
       return snapshotMapper(docSnap)
     }
 
-    throw new Error(`Not found receipt with id ${id}`)
+    throw new Error(`Not found procedure with id ${id}`)
   }
 
 }

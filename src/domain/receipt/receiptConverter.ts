@@ -4,6 +4,7 @@ import {
   QueryDocumentSnapshot,
   SnapshotOptions
 } from 'firebase/firestore'
+import Receipt from './Receipt'
 
 export default class ReceiptConverter implements FirestoreDataConverter<Receipt> {
 
@@ -15,8 +16,10 @@ export default class ReceiptConverter implements FirestoreDataConverter<Receipt>
 
   fromFirestore(snapshot: QueryDocumentSnapshot, options: SnapshotOptions): Receipt {
     const data = snapshot.data(options)
+
     return {
-      ...data
+      id: snapshot.id,
+      date: data.date.toDate(),
     } as Receipt
   }
 }

@@ -1,6 +1,7 @@
 interface Procedure {
+  id: string
   name: string
   price: number
-  type: ProcedureType
   workerIncome: number
+  type: ProcedureType
 }

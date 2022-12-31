@@ -47,7 +47,7 @@ const NavigationBar = (props: NavigationBarProps) => {
           />
 
           <NavigationBarItem
-            linkProps={{ to: RoutePath.USERS }}
+            linkProps={{ to: RoutePath.WORKERS }}
             menuItemProps={{
               icon: 'users',
               content: 'Сотрудники'

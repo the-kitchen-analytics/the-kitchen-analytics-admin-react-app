@@ -6,21 +6,21 @@ import {
 import { pathNames, firestore } from '../../config/firebase'
 import AbstractFirebaseService from '../common/AbstractFirebaseService'
 import snapshotMapper from '../common/genericSnapshotMapper'
-import Receipt from './Receipt'
+import Worker from './Worker'
 
-export default class ReceiptFirebaseService extends AbstractFirebaseService<Receipt> {
+export default class WorkerFirebaseService extends AbstractFirebaseService<Worker> {
 
-  constructor(converter: FirestoreDataConverter<Receipt>) {
-    super(firestore, pathNames.RECEIPTS, converter)
+  constructor(converter: FirestoreDataConverter<Worker>) {
+    super(firestore, pathNames.WORKERS, converter)
   }
 
-  async getAll(): Promise<Array<Receipt>> {
+  async getAll(): Promise<Array<Worker>> {
     const querySnapshot = await getDocs(super.collectionWrapper())
 
     return querySnapshot.docs.map(snapshotMapper)
   }
 
-  async getById(id: string): Promise<Receipt> {
+  async getById(id: string): Promise<Worker> {
     const docRef = super.docWrapper(id)
     const docSnap = await getDoc(docRef)
 
@@ -28,7 +28,7 @@ export default class ReceiptFirebaseService extends AbstractFirebaseService<Rece
       return snapshotMapper(docSnap)
     }
 
-    throw new Error(`Not found receipt with id ${id}`)
+    throw new Error(`Not found worker with id ${id}`)
   }
 
 }

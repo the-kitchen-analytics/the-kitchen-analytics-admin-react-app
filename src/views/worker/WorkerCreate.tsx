@@ -1,9 +1,10 @@
 import { ViewLayout } from '../../layouts'
 
-export default function Users() {
+export default function WorkerCreate() {
+
   return (
-    <ViewLayout icon='users'
-      header='Сотрудники'
+    <ViewLayout icon={'users'}
+      header={'Добавить сотрудника'}
       subheader='Управляйте пользователями приложения'
       content={'content'}
     />
