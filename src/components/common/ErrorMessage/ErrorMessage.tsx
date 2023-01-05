@@ -1,18 +1,13 @@
-import { Message } from 'semantic-ui-react'
+import { Message, MessageProps } from 'semantic-ui-react'
 
-class ErrorMessageProps {
-  message: string
-
-  constructor(message: string) {
-    this.message = message
-  }
-}
+type ErrorMessageProps = MessageProps
 
 const ErrorMessage = (props: ErrorMessageProps) => (
   <Message
     error
     header="Произошла ошибка."
     content={props.message || 'Пожалуйста, проверьте введённые данные и повторите попытку.'}
+    {...props}
   />
 )
 

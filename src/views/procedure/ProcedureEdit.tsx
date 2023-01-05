@@ -1,5 +1,7 @@
 import { ViewLayout } from '../../layouts'
 import { useLoaderData, useMatch } from 'react-router-dom'
+import { Grid } from 'semantic-ui-react'
+import { BackButton } from '../../components/common'
 
 export default function ProcedureEdit() {
 
@@ -14,6 +16,18 @@ export default function ProcedureEdit() {
       header={`Услуга #${procedureId}`}
       subheader='Управляйте записями в приложении'
       content={'content'}
-    />
+    >
+      <Grid.Row>
+        <Grid.Column>
+          content
+        </Grid.Column>
+      </Grid.Row>
+
+      <Grid.Row>
+        <Grid.Column>
+          <BackButton />
+        </Grid.Column>
+      </Grid.Row>
+    </ViewLayout>
   )
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Segment, Grid, Container } from 'semantic-ui-react'
-import ErrorMessage from '../../components/ErrorMessage'
+import ErrorMessage from '../../components/common/ErrorMessage'
 import NavigationBar from '../../components/NavigationBar'
 
 export default function MainLayout() {

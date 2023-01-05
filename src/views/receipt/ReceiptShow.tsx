@@ -1,5 +1,6 @@
 import { ViewLayout } from '../../layouts'
 import { useLoaderData, useMatch } from 'react-router-dom'
+import { Grid } from 'semantic-ui-react'
 
 export default function ReceiptShow() {
 
@@ -13,7 +14,12 @@ export default function ReceiptShow() {
     <ViewLayout icon='checked calendar'
       header={`Запись #${receiptId}`}
       subheader='Управляйте записями в приложении'
-      content={'content'}
-    />
+    >
+      <Grid.Row>
+        <Grid.Column>
+          content
+        </Grid.Column>
+      </Grid.Row>
+    </ViewLayout>
   )
 }

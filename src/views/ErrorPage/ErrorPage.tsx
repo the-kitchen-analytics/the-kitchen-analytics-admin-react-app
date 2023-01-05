@@ -1,6 +1,5 @@
 import { useRouteError } from 'react-router'
-import { Message } from 'semantic-ui-react'
-import HomeButton from '../../components/HomeButton'
+import { HomeButton, ErrorMessage } from '../../components/common/'
 import getErrorMessage from './getErrorMessage'
 
 export default function ErrorPage() {
@@ -10,8 +9,7 @@ export default function ErrorPage() {
 
   return (
     <>
-      <Message
-        error
+      <ErrorMessage
         icon={'exclamation circle'}
         header={'Произошла ошибка'}
         content={errorMessage}
